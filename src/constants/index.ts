@@ -1,3 +1,10 @@
+export enum SCATrait {
+  signer = 'signerType',
+  account = 'accountType',
+  bundler = 'bundlerType',
+  paymaster = 'paymasterType',
+}
+
 // Smart Account traits include the following:
 // - Signer
 // - Account
@@ -6,18 +13,18 @@
 export const smartAccountTraits = [
   {
     label: 'Signer',
-    value: 'signerType',
+    value: SCATrait.signer,
   },
   {
     label: 'Account',
-    value: 'accountType',
+    value: SCATrait.account,
   },
   {
     label: 'Bundler',
-    value: 'bundlerType',
+    value: SCATrait.bundler,
   },
   {
     label: 'Paymaster',
-    value: 'paymasterType',
+    value: SCATrait.paymaster,
   },
 ]
