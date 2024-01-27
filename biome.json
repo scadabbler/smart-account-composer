@@ -1,0 +1,22 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.4.0/schema.json",
+  "javascript": {
+    "formatter": {
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "semicolons": "asNeeded",
+      "quoteStyle": "single"
+    }
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "useEnumInitializers": "off",
+        "noNonNullAssertion": "off"
+      },
+      "a11y": {
+        "useKeyWithClickEvents": "off"
+      }
+    }
+  }
+}
