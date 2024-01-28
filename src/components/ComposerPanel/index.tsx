@@ -1,27 +1,25 @@
-import React, { useState } from 'react'
-import { Select } from '../Select'
+import { FC, useState } from 'react'
+import { Select } from '../ui/select'
 import { SCATrait, smartAccountTraits } from '../../constants'
-import { SignerSection } from './SignerSection'
+import { Separator } from '../ui/separator'
+import { SignerTab } from './SignerTab'
+import { AccountTab } from './AccountTab'
 
-const sectionToComponent: Record<SCATrait, React.ReactNode> = {
-  [SCATrait.signer]: <SignerSection />,
-  [SCATrait.account]: <div>Account</div>,
-  [SCATrait.bundler]: <div>Bundler</div>,
-  [SCATrait.paymaster]: <div>Paymaster</div>,
-}
-
-export const ComposerPanel = () => {
-  const [selectedTrait, setSelectedTrait] = useState<SCATrait>(
-    smartAccountTraits[0].value,
-  )
+export const ComposerPanel: FC = () => {
+  const [selectedTrait, setSelectedTrait] = useState<SCATrait>(SCATrait.signer)
+  const handleTraitTabChange = (val: string) => {
+    setSelectedTrait(val as SCATrait)
+  }
   return (
     <div>
       <Select
         options={smartAccountTraits}
-        onChange={(val) => setSelectedTrait(val as SCATrait)}
+        onChange={handleTraitTabChange}
         value={selectedTrait}
       />
-      {sectionToComponent[selectedTrait]}
+      <Separator className="mt-2 mb-4" />
+      {selectedTrait === SCATrait.signer && <SignerTab />}
+      {selectedTrait === SCATrait.account && <AccountTab />}
     </div>
   )
 }

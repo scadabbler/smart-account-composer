@@ -13,12 +13,12 @@ interface SelectProps {
 
 export const Select: FC<SelectProps> = ({ options, value, onChange }) => {
   return (
-    <div className="flex flex-row space-x-4">
+    <div className="flex flex-row space-x-4 items-end">
       {options.map((option) => (
         <div
           key={option.value}
-          className={`py-1 px-2 select-none rounded cursor-pointer ${
-            option.value === value ? 'bg-blue-500 text-white' : ''
+          className={`py-1 px-2 select-none rounded cursor-pointer text-zinc-400 ${
+            option.value === value ? 'text-zinc-800 text-xl' : ''
           }`}
           onClick={() => onChange(option.value)}
         >
